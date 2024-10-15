@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,10 +18,10 @@ namespace Lab2.DataAccess
         [StringLength(50)]
         public string Subject { get; set; }
 
-        public int Value { get; set; }
+        public int? Value { get; set; }
 
         [StringLength(200)]
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
 
         public Student Student { get; set; }
 

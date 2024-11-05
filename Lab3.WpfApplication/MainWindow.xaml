@@ -1,0 +1,49 @@
+﻿<Window x:Class="Lab3.WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab3.WpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Click="BtnLoadDataClick" x:Name="BtnLoadData">Load</Button>
+        <ComboBox x:Name="LbSortColumn" Grid.Column="1">
+            <ComboBoxItem Content="ID"></ComboBoxItem>
+            <ComboBoxItem Content="Name"></ComboBoxItem>
+            <ComboBoxItem Content="Surname"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="LbSortOrder" Grid.Column="2">
+            <ComboBoxItem Content="ASC"></ComboBoxItem>
+            <ComboBoxItem Content="DESC"></ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Row="0" Grid.Column="3" Click="BtnSortClick" x:Name="BtnSort">Sort</Button>
+
+        <DataGrid  x:Name="LstGrades" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4"></DataGrid>
+
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="4" 
+                  x:Name="LstStudents"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  SelectionMode="Single"
+                  SelectionChanged="LstStudents_OnSelectionChanged"
+                  CanUserAddRows="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="100" Binding="{Binding Code}" />
+                <DataGridTextColumn Header="Vārds" Width="100" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Uzvārds" Width="150" Binding="{Binding Surname}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

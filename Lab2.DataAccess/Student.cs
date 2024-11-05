@@ -24,6 +24,6 @@ namespace Lab2.DataAccess
         [StringLength(10)]
         public string Code { get; set; }
 
-        public List<Grade> Grades { get; } = new();
+        public List<Grade> Grades { get; set; } = new();
     }
 }

@@ -34,6 +34,9 @@ namespace Lab2.DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 

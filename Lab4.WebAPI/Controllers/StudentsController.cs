@@ -7,10 +7,10 @@ namespace Lab4.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StudentsController : ControllerBase
     {
         private StudentDbContext _db;
-        public StudentController()
+        public StudentsController()
         {
             _db = new StudentDbContext();
         }

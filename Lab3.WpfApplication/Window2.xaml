@@ -13,14 +13,20 @@
     </Window.DataContext>
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
-            <DataGrid AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="4" 
+            <StackPanel Orientation="Horizontal">
+                <Label>Uzvārds:</Label>
+                <TextBox x:Name="TbxSearchSurname" Width="200" Text="{Binding SearchName, Mode=TwoWay}"/>
+                <Button x:Name="BtnSearch" Command="{Binding SearchCommand}">Search</Button>
+            </StackPanel>
+                <DataGrid AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="4" 
                       x:Name="LstStudents"
                       d:ItemsSource="{d:SampleData ItemCount=5}"
                       ItemsSource="{Binding Students, Mode=OneWay}"
                       SelectionMode="Single"
                       CanUserAddRows="False"
                       IsReadOnly="True"
-                      SelectedItem="{Binding SelectedStudent, Mode=TwoWay}">
+                      SelectedItem="{Binding SelectedStudent, Mode=TwoWay}"
+                      MinHeight="300">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="100" Binding="{Binding Code}" />
                     <DataGridTextColumn Header="Vārds" Width="100" Binding="{Binding Name}" />
@@ -32,6 +38,13 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Label>Vārds:</Label>
+                <TextBox x:Name="TbxName" Width="200" Text="{Binding SelectedStudent.Name, Mode=TwoWay}"/>
+                <Label>Uzvārds:</Label>
+                <TextBox x:Name="TbxSurname" Width="200" Text="{Binding SelectedStudent.Surname, Mode=TwoWay}"/>
+                <Button x:Name="BtnUpdate" Command="{Binding UpdateCommand}">Update</Button>
+            </StackPanel>
             <Label>Grades:</Label>
             <DataGrid AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="4" 
                       x:Name="LstGrades"

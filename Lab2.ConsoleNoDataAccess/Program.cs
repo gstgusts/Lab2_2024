@@ -11,11 +11,10 @@ namespace Lab2.ConsoleNoDataAccess
                 MaxTimeout = -1,
             };
             var client = new RestClient(options);
-            var request = new RestRequest("/WeatherForecast", Method.Get);
+            var request = new RestRequest("/api/Student/2", Method.Get);
             RestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
 
-            Console.ReadLine();
         }
     }
 }

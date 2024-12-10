@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             button1 = new Button();
             textBox1 = new TextBox();
+            nameErrorProvider = new ErrorProvider(components);
+            maskedTextBox1 = new MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)nameErrorProvider).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -49,15 +53,29 @@
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 1;
             // 
+            // nameErrorProvider
+            // 
+            nameErrorProvider.ContainerControl = this;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(313, 335);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(150, 31);
+            maskedTextBox1.TabIndex = 2;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(maskedTextBox1);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)nameErrorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -66,5 +84,7 @@
 
         private Button button1;
         private TextBox textBox1;
+        private ErrorProvider nameErrorProvider;
+        private MaskedTextBox maskedTextBox1;
     }
 }
